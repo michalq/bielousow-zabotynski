@@ -14,16 +14,17 @@ void sleep(unsigned int mseconds)
 
 int main()
 {
-    // 20, 40, 9, 2, 3, 4
-    ReakcjaBZ rk = ReakcjaBZ(20, 40, 9, 2, 3, 3);
-    for (int i = 0; i < 100; i++)
+    // m    n   q   k1  k2  g
+    // 20   40  9   2   3   4
+    ReakcjaBZ rk = ReakcjaBZ(100, 50, 9, 2, 3, 3);
+    for (int i = 0; i < 500; i++)
     {
         rk.Iteruj();
-        ///*
+        /*
         system("clear");
         rk.Wyswietl();
         sleep(100000);
-        //*/
+        */
     }
     //system("clear");
     rk.Wyswietl();

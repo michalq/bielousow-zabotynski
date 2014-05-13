@@ -4,7 +4,6 @@ Plansza::Plansza()
 {
     // Tablica domyślna 10x10
     this->ekran = new int [100];
-    //this->ekranS = new int [100];
     this->szer = 10;
     this->wys = 10;
 }
@@ -12,13 +11,11 @@ Plansza::Plansza()
 Plansza::~Plansza()
 {
     delete ekran;
-    //delete ekranS;
 }
 
 Plansza::Plansza(int m,int n)
 {
     this->ekran = new int [m*n];
-    //this->ekranS = new int [m*n];
     this->szer = m;
     this->wys = n;
 }
@@ -26,14 +23,13 @@ Plansza::Plansza(int m,int n)
 void Plansza::Wyswietl()
 {
     int pol = this->szer * this->wys;
-    for (int i = 0; i < pol; i++)
+    for (int j = 0; j < this->Wysokosc(); j++)
     {
-        if ( ! (i%this->szer))
+        for (int i = 0; i < this->Szerokosc(); i++)
         {
-            std::cout << "\n";
+            std::cout << Plansza::KOLOR[this->Get(i, j)];
         }
-        if (this->ekran[i] < 10)
-            std::cout << Plansza::KOLOR[this->ekran[i]];
+        std::cout << "\n";
     }
 }
 
@@ -56,7 +52,6 @@ void Plansza::Set(int x, int y, int k)
     {
         pos = (y*this->szer) + x;
         this->ekran[pos] = k;
-        //this->ekranS[pos] += k;
     }
 }
 
@@ -68,18 +63,6 @@ int Plansza::Get(int x,int y)
     }
     return this->ekran[(y*this->szer) + x];
 }
-
-/**
- * Zwraca sumę stanów na danym polu
- *
-int Plansza::GetEkranS(int x,int y)
-{
-    if ((x+1) > this->szer || (y+1) > this->wys || x < 0 || y < 0)
-    {
-        return 0;
-    }
-    return this->ekranS[(y*this->szer) + x];
-}*/
 
 /**
  * Zwraca ilość sąsiadów dookoła punktu (x,y), których wartości zawierają się w 'od_'..'do_'

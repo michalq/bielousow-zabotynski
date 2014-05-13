@@ -14,7 +14,7 @@ class ReakcjaBZ {
     void UstawDomyslne();
   public:
     ReakcjaBZ();
-    ReakcjaBZ(int m,int n); // m i n to rozmiary planszy
+    ReakcjaBZ(int m,int n);
     ReakcjaBZ(int m,int n,int Q,int K1,int K2,int G);
     int Get(int x,int y);
     void Iteruj();
